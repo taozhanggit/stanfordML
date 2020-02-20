@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 data_path = "ex1data1.txt"
 data = pd.read_csv(data_path, names=['population', 'profit'])
 print(data.head()) # 看看dataframe的前5行
-
 print(data.describe())
 
 data.plot(kind="scatter",x='population', y='profit')
@@ -24,12 +23,6 @@ def compute_error(b, w, points):
         #print("y", y)
         totalError += np.power((y-(w*x+b)), 2) # (y-(w*x+b))**2
     return totalError / float(2 * pointNum)
-
-print(compute_error(0,0, data))
-
-#print(help(np.sum))
-#print(help(np.ravel()))
-# batch梯度下降，X输入数据第一列，y输入数据第二列，theta要计算的指，alpha学习率，iters迭代次数
 
 def batchGradientDescent(b, w, learningRate, points):
     b_gradient = 0
@@ -54,6 +47,7 @@ def gradientDescentCompute(points, startB, startW, learningRate, iters):
     return b, w
 
 b, w = gradientDescentCompute(data, 0, 0, 0.001, 10000)
+
 plt.scatter(data.population, data.profit, label="Training data")
 plt.plot(data.population, data.population*w + b, label="Prediction")
 plt.legend(loc=2)
