@@ -48,6 +48,7 @@ def gradientDescentCompute(points, startB, startW, learningRate, iters):
 
 b, w = gradientDescentCompute(data, 0, 0, 0.001, 10000)
 
+
 plt.scatter(data.population, data.profit, label="Training data")
 plt.plot(data.population, data.population*w + b, label="Prediction")
 plt.legend(loc=2)
